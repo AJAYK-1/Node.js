@@ -1,0 +1,3 @@
+// Function Constructor...
+const sum = new Function('a','b','return a+b')
+console.log('sum = ', sum(5,6))
