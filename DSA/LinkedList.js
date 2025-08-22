@@ -59,6 +59,40 @@ class LinkedList {
 
         if (this.length === 0) this.tail = null
     }
+
+    unshift(value) {
+        let newNode = new Node(value)
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        }
+        newNode.next = this.head
+        this.head = newNode
+        this.length++
+    }
+
+    getFirst() {
+        if (!this.head) return `The list is empty`
+
+        console.log(this.head);
+    }
+
+    getLast() {
+        if (!this.head) return `This list is empty...`
+
+        console.log(this.tail);
+    }
+
+    get(value) {
+        if (!this.head) return `The list is empty`
+
+        let temp = this.head
+        while (temp) {
+            if (temp.data === value) return `Element found...`
+            temp = temp.next
+        }
+        return `Element not found...`
+    }
 }
 
 const MyLinkedList = new LinkedList(3)
@@ -67,10 +101,14 @@ console.log(MyLinkedList);
 MyLinkedList.push(4)
 MyLinkedList.push(10)
 console.log(MyLinkedList);
-MyLinkedList.pop()
+// MyLinkedList.pop()
 // MyLinkedList.pop()
 // MyLinkedList.pop()
 // console.log(MyLinkedList.pop());
-MyLinkedList.shift()
+// MyLinkedList.shift()
+MyLinkedList.unshift(15)
+MyLinkedList.getFirst()
+MyLinkedList.getLast()
+MyLinkedList.get(15)
 console.log(MyLinkedList);
 
