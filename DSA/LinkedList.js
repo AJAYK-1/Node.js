@@ -91,7 +91,14 @@ class LinkedList {
             if (temp.data === value) return `Element found...`
             temp = temp.next
         }
-        return `Element not found...`
+        return temp
+    }
+
+    set(index, value) {
+        let temp = this.get(value)
+        if (temp === index) {
+            temp.data = index
+        }
     }
 }
 
@@ -110,5 +117,6 @@ MyLinkedList.unshift(15)
 MyLinkedList.getFirst()
 MyLinkedList.getLast()
 MyLinkedList.get(15)
+MyLinkedList.set(12, 15)
 console.log(MyLinkedList);
 
