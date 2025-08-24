@@ -83,22 +83,46 @@ class LinkedList {
         console.log(this.tail);
     }
 
-    get(value) {
+    get(index) {
         if (!this.head) return `The list is empty`
 
         let temp = this.head
+        let counter = 0
         while (temp) {
-            if (temp.data === value) return `Element found...`
+            if (counter == index) return temp
+            counter++
             temp = temp.next
         }
-        return temp
+        return `No index found`
     }
 
     set(index, value) {
-        let temp = this.get(value)
-        if (temp === index) {
-            temp.data = index
+        let temp = this.get(index)
+        if (temp) {
+            temp.data = value
+            return true
         }
+        return false
+    }
+
+    insert(index, value) {
+        if (index === 0) return this.unshift(value)
+        if (index === this.length) return this.push(value)
+        let newNode = new Node(value)
+        let temp = this.get(index - 1)
+        if (temp) {
+            newNode.next = temp.next
+            temp.next = newNode
+            this.length++
+        } else return `Invalid Index`
+    }
+
+    size() {
+        return this.length
+    }
+
+    clear() {
+        this.head = null
     }
 }
 
@@ -116,7 +140,8 @@ console.log(MyLinkedList);
 MyLinkedList.unshift(15)
 MyLinkedList.getFirst()
 MyLinkedList.getLast()
-MyLinkedList.get(15)
-MyLinkedList.set(12, 15)
-console.log(MyLinkedList);
-
+console.log('--------------\n', MyLinkedList.get(1));
+console.log(MyLinkedList.set(1, 20));
+MyLinkedList.insert(1, 50)
+console.log(MyLinkedList.size());
+console.log(MyLinkedList.clear());
