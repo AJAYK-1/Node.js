@@ -58,6 +58,25 @@ class DoublyLinkedList {
             this.length++
         }
     }
+
+    shift() {
+        if (this.length === 0) console.log(`The list is empty...`);
+        else if (this.length === 1) {
+            this.head = null
+            this.tail = null
+            this.length--
+        } else {
+            let temp = this.head
+            this.head = this.head.next
+            temp.next = null
+            this.head.prev = null
+            this.length--
+        }
+    }
+
+    reverse() {
+        
+    }
 }
 
 let MyDLL = new DoublyLinkedList(3)
@@ -67,6 +86,9 @@ MyDLL.push(10)
 MyDLL.push(33)
 // MyDLL.pop()
 MyDLL.unshift(55)
-
+console.log('----------------------');
+console.log(MyDLL);
+MyDLL.shift()
+console.log('----------------------');
 console.log(MyDLL);
 

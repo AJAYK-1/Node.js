@@ -124,6 +124,22 @@ class LinkedList {
     clear() {
         this.head = null
     }
+
+    reverse() {
+        let temp = this.head
+        this.head = this.tail
+        this.tail = temp
+        // [this.head, this.tail] = [this.tail, this.head]
+        let next = temp
+        let prev = null
+        for (let i = 0; i < this.length; i++) {
+            next = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next
+        }
+
+    }
 }
 
 const MyLinkedList = new LinkedList(3)
@@ -143,5 +159,10 @@ MyLinkedList.getLast()
 console.log('--------------\n', MyLinkedList.get(1));
 console.log(MyLinkedList.set(1, 20));
 MyLinkedList.insert(1, 50)
+MyLinkedList.insert(1, 70)
 console.log(MyLinkedList.size());
-console.log(MyLinkedList.clear());
+console.log(MyLinkedList);
+MyLinkedList.reverse()
+console.log(MyLinkedList);
+
+// console.log(MyLinkedList.clear());
