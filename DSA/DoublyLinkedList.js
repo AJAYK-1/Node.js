@@ -73,10 +73,6 @@ class DoublyLinkedList {
             this.length--
         }
     }
-
-    reverse() {
-        
-    }
 }
 
 let MyDLL = new DoublyLinkedList(3)
