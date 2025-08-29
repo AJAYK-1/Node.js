@@ -33,3 +33,4 @@ const Sum2 = array => target => {
 }
 
 console.log(Sum2([1, 2, 5, 3, 6, 4])(9));
+console.log(Sum2([1, 2, 5, 3, 6, 4])(5));
