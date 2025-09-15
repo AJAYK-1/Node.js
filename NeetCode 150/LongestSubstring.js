@@ -2,16 +2,22 @@
 
 const LongestSubString = s => {
     let left = 0
-    let right = left
-    let length = 0
-    let hashSet = []
+    let right = 0
+    let subLength = 0
+    let hashSet = new Set()
 
     while (right < s.length) {
-        right++
-
-        if (length < right - left) 
-            length = right - left
-    }
+        const letter = s[right]
+        if (!hashSet.has(letter)) {
+            hashSet.add(letter)
+            subLength = Math.max(subLength, hashSet.size)
+            right++
+        } else {
+            hashSet.delete(s[left])
+            left++
+        }
+    }    
+    return subLength
 }
 
 const s1 = 'abcabcbb'
