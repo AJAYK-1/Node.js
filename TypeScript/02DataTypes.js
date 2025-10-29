@@ -1,0 +1,23 @@
+var userName = 'Ajay';
+console.log(userName);
+var age = 23;
+console.log(age);
+var bool = true;
+console.log(bool);
+var x = 'Hi there';
+console.log(x);
+var y = 100;
+console.log(y);
+var z = 100;
+console.log(z);
+var n = null;
+console.log(n);
+// Union types...
+var regNum = 'Ajay';
+console.log(regNum);
+regNum = 12345;
+console.log(regNum);
+var userId = true;
+console.log(userId);
+userId = 'Ajay123';
+console.log(userId);
