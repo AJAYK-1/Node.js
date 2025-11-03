@@ -6,6 +6,9 @@ function GenericSample<Type>(value: Type): Type {
 let a = GenericSample<string>("Ajay")
 console.log(a);
 
+let b = GenericSample(22)
+console.log(b);
+
 function Generics2<t>(value: t[]): t[] {
     return value
 }
